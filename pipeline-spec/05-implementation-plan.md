@@ -120,6 +120,11 @@ previews — never build on them.** `_healpix_29` (NESTED order-29) confirmed; M
 >=0.9` and per-catalog **HF revision SHAs**. Non-MMU: ZTF over `s3://ipac-irsa-ztf` (anon),
 Legacy over Flatiron Globus HDF5, CDS XMatch as a single un-fanned job.
 
+**Canonical source list = the UniverseTBD "Multimodal Universe HATS" collection**
+(`huggingface.co/collections/UniverseTBD/multimodal-universe-hats`). Members span **three
+orgs** — `UniverseTBD/`, `hugging-science/` (APOGEE DR17, Legacy-south, MaNGA), `LSDB/`
+(VIPERS) — so `open_catalog` paths must use the correct org, not a blanket `UniverseTBD/`.
+
 ---
 
 ## 4. Data-access matrix (verified) + dataset inventory
@@ -131,12 +136,12 @@ Legacy over Flatiron Globus HDF5, CDS XMatch as a single un-fanned job.
 | `mmu_desi_edr_sv3` (spectra) | gal/agn | **Full HATS**, UniverseTBD/HF | lsdb collection (+margin) | none / none | 1-10M | seed + spectra . **P1** |
 | `mmu_desi_provabgs` (tabular SED) | gal | **Full HATS** | lsdb | none | 0.1-1M | seed + labels . **P1** |
 | `mmu_hsc_pdr3_dud_22.5` (images) | gal | **Full HATS** (deep/UD, mag<22.5) | lsdb | none | 0.1-1M | primary galaxy image . **P1** |
-| Legacy DR10 (images) | all | WARN **not full on HF HATS**; full = Flatiron MMU HDF5 (84 TB, 124M, 160px griz, z<21 south) | **Globus** + `h5py` (or brick + `Cutout2D`) | none | large | Globus pre-stage to /taiga . **P1/P2** |
+| Legacy DR10 (images) | all | HF `hugging-science/mmu_legacysurvey_dr10_south_21` (**Preview ~89k — verify full**); full = Flatiron MMU HDF5 (84 TB, 124M, 160px griz, z<21 south) | lsdb if full, else **Globus** + `h5py` (or brick + `Cutout2D`) | none | large | lsdb if full / else Globus pre-stage . **P1/P2** |
 | `Smith42/desi_hsc_crossmatched` / `legacysurvey_hsc` | gal | Full (20k / ~100k) | `load_dataset` | none | 20k-100k | **validation oracle** . **P1** |
 | `mmu_sdss_sdss` (spectra) | gal/star | **Full HATS** | lsdb | none | 1-10M | spectra . P1/P2 |
 | `mmu_jwst_*` (images) | gal | Full, small fields | lsdb | none | 1k-100k | optional image add . P2 |
-| `mmu_gaia_gaia` (BP/RP + astrometry) | star | **Full HATS, 122M, 48% sky**, 10" margin | lsdb | none | 122M | PM source . **P2** |
-| APOGEE allStar (seed+spectra) | star | WARN preview-only on MMU | **local FITS via Globus** | none | ~0.7M | local read . **P2** |
+| `mmu_gaia_gaia` (BP/RP + astrometry) | star | HATS; props say 122M/48% sky, 10" margin, **but collection viewer shows "Preview 62.3k" -> verify full-vs-preview in Phase 0** | lsdb | none | 122M? | PM source . **P2** |
+| APOGEE DR17 (seed+spectra) | star | **Full HATS** `hugging-science/mmu_apogee_dr17` (720k) | lsdb | none | ~0.72M | **lsdb stream** (no local FITS needed) . **P2** |
 | ZTF DR23/24 (light curves) | star/agn | **Full HATS**, `s3://ipac-irsa-ztf` (us-east-1) | pyarrow/lsdb `anon=True` | none | large | S3 stream/pre-stage . **P2** |
 | `mmu_tess_spoc` (light curves) | star | Full HATS | lsdb | none | 0.1-1M | P2 |
 | GALAH DR3 (spectra) | star | preview-only; datacentral.org.au (AU) | VO SSA | mild; ~250 ms RTT | small | pre-stage . P2 |
@@ -151,8 +156,11 @@ Legacy over Flatiron Globus HDF5, CDS XMatch as a single un-fanned job.
 - `mmu_gaia_gaia`: `hats_col_healpix_order=29`, `hats_nrows=122302572`,
   `moc_sky_fraction=0.48`, margin `mmu_gaia_gaia_10arcs`. Partitions coarsest at **order-4**
   but **adaptive to order-10**.
-- **Not yet full HATS:** Legacy DR10 (test tile + SSL-north only), APOGEE, GALAH, MaNGA,
-  VIPERS -> use Flatiron HDF5 / local FITS.
+- **HATS availability (rechecked vs the collection):** now on HF as HATS —
+  `hugging-science/mmu_apogee_dr17` (720k), `hugging-science/mmu_manga`, `LSDB/mmu_vipers_w1/w4`;
+  Legacy-south is on HF as a **preview** (`hugging-science/mmu_legacysurvey_dr10_south_21`),
+  full still via Flatiron Globus HDF5. **Still not HATS:** GALAH (datacentral) and the SDSS
+  DR16Q AGN seed (local FITS) -> convert with `hats-import` (sec 4.5).
 
 ### 4.3 Smith42 pre-cross-matched (validation oracle, not the product)
 | Dataset | Modalities | Rows | Use |
@@ -172,6 +180,14 @@ hsc  = lsdb.open_catalog("hf://datasets/UniverseTBD/mmu_hsc_pdr3_dud_22.5",
 matched = desi.crossmatch(hsc, radius_arcsec=1.0, n_neighbors=5).compute()  # n>1 surfaces ambiguity
 ```
 Caveat: first `open_catalog` reads `point_map.fits` (~15-20 s/catalog) — budget it; mitigate with `PixelSearch`.
+
+### 4.5 HATS-first: reuse existing matches, convert the rest, flag what we can't
+To run **one uniform lsdb crossmatch**, convert non-HATS sources to HATS with `hats-import`
+before matching (SDSS DR16Q AGN seed, GALAH spectra, any local FITS not on HF). Already
+HATS — all MMU `mmu_*`, APOGEE DR17, ZTF (`s3://ipac-irsa-ztf`) — need no conversion.
+**Flag explicitly** any source we cannot convert (license/format/volume), fall back to a
+custom reader, and record the reason in the matrix (sec 4.1). Minimize bespoke readers so
+lsdb does the join everywhere it can.
 
 ---
 
@@ -200,6 +216,11 @@ compute node** to settle the internet question. Emits `probe_report.json` -> glo
 per-service caps.
 
 ## 7. Crossmatch methodology
+- **Don't reinvent matching.** Prefer, in order: (1) **already-cross-matched datasets** —
+  Smith42 `desi_hsc`, `legacysurvey_hsc`, `sdss_gaia` — where they cover a pairing (use
+  as-is, no matching); (2) **lsdb's built-in `crossmatch`** (KdTreeCrossmatch) for HATS
+  catalogs sharing `_healpix_29` (the spatial join is solved); (3) **custom matching only**
+  where neither exists. We own epoch handling + adjudication + provenance, **not** the join.
 - `global_object_id` = order-29 NESTED index of the **seed** position (continuous with
   `_healpix_29`), **namespaced by population** (fixes L1). **P1 galaxies: pm=0 -> no
   `apply_space_motion`** (major simplification).
