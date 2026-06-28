@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import time
+from collections.abc import Mapping
+from typing import Any
 
 import requests
 
@@ -16,12 +18,14 @@ def check_endpoint(url: str, timeout: float = 10.0) -> tuple[bool, float | None]
     t0 = time.monotonic()
     try:
         r = requests.head(url, timeout=timeout, allow_redirects=True)
-        return (r.status_code < 500, time.monotonic() - t0)
+        if r.status_code in (403, 405):
+            r = requests.get(url, timeout=timeout, allow_redirects=True, stream=True)
+        return (200 <= r.status_code < 500, time.monotonic() - t0)
     except requests.RequestException:
         return (False, None)
 
 
-def summarize_reachability(results: dict[str, tuple[bool, float | None]]) -> dict:
+def summarize_reachability(results: Mapping[str, tuple[bool, float | None]]) -> dict[str, Any]:
     unreachable = sorted([k for k, (ok, _) in results.items() if not ok])
     return {
         "internet_ok": len(unreachable) == 0,
@@ -30,6 +34,6 @@ def summarize_reachability(results: dict[str, tuple[bool, float | None]]) -> dic
     }
 
 
-def probe_all(timeout: float = 10.0) -> dict:
+def probe_all(timeout: float = 10.0) -> dict[str, Any]:
     results = {name: check_endpoint(url, timeout) for name, url in ENDPOINTS.items()}
     return summarize_reachability(results)

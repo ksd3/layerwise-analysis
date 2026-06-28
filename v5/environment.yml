@@ -1,5 +1,7 @@
 name: omnisky
-channels: [conda-forge]
+channels:
+  - conda-forge
+  - nodefaults
 dependencies:
   - python=3.11
   - lsdb>=0.9
@@ -13,6 +15,9 @@ dependencies:
   - s3fs>=2024.6
   - huggingface_hub>=0.24
   - datasets>=2.20
+  - astroquery>=0.4.7
+  - dask>=2024.6
+  - distributed>=2024.6
   - requests>=2.32
   - pytest>=8
   - mypy>=1.10

@@ -15,9 +15,16 @@ class SourceProbe:
     throughput_mb_s: float
     rate_limited: bool
     n_rows_sampled: int
+    error: str = ""
 
     def suggested_concurrency(self) -> int:
-        return 2 if self.rate_limited else 16
+        if not self.reachable or self.n_rows_sampled <= 0:
+            return 0
+        if self.rate_limited:
+            return 2
+        if self.throughput_mb_s < 1.0:
+            return 4
+        return 16
 
 
 @dataclass
@@ -30,17 +37,19 @@ class ProbeReport:
         self.sources.append(sp)
 
     def to_json(self, path: str | Path) -> None:
+        path = Path(path)
+        path.parent.mkdir(parents=True, exist_ok=True)
         payload = {
             "internet_ok": self.internet_ok,
             "notes": self.notes,
             "sources": [asdict(s) for s in self.sources],
         }
-        Path(path).write_text(json.dumps(payload, indent=2))
+        path.write_text(json.dumps(payload, indent=2, sort_keys=True))
 
     @classmethod
     def from_json(cls, path: str | Path) -> "ProbeReport":
         d = json.loads(Path(path).read_text())
         rep = cls(internet_ok=d["internet_ok"], notes=d.get("notes", ""))
-        for s in d["sources"]:
+        for s in d.get("sources", []):
             rep.add(SourceProbe(**s))
         return rep

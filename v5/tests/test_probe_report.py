@@ -21,3 +21,10 @@ def test_concurrency_cap_from_throughput():
     sp2 = SourceProbe(name="y", reachable=True, cold_latency_s=1.0, warm_latency_s=0.5,
                       throughput_mb_s=10.0, rate_limited=False, n_rows_sampled=100)
     assert sp2.suggested_concurrency() == 16
+    slow = SourceProbe(name="slow", reachable=True, cold_latency_s=10.0, warm_latency_s=5.0,
+                       throughput_mb_s=0.5, rate_limited=False, n_rows_sampled=10)
+    assert slow.suggested_concurrency() == 4
+    failed = SourceProbe(name="bad", reachable=False, cold_latency_s=-1.0, warm_latency_s=-1.0,
+                         throughput_mb_s=0.0, rate_limited=False, n_rows_sampled=0,
+                         error="boom")
+    assert failed.suggested_concurrency() == 0

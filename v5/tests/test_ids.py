@@ -1,4 +1,5 @@
 import numpy as np
+import pytest
 
 from mmu.ids import NSIDE, ORDER, assign_global_id
 
@@ -28,3 +29,14 @@ def test_scalar_inputs_supported():
     out = assign_global_id(10.684, 41.269)
     assert out.shape == (1,)
     assert out.dtype == np.int64
+
+
+def test_rejects_invalid_coordinates():
+    with pytest.raises(ValueError, match="finite"):
+        assign_global_id(np.array([10.0, np.nan]), np.array([0.0, 1.0]))
+    with pytest.raises(ValueError, match="ra"):
+        assign_global_id(np.array([360.0]), np.array([0.0]))
+    with pytest.raises(ValueError, match="dec"):
+        assign_global_id(np.array([10.0]), np.array([91.0]))
+    with pytest.raises(ValueError, match="shape"):
+        assign_global_id(np.array([10.0, 11.0]), np.array([0.0]))
