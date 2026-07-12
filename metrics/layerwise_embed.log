@@ -1,0 +1,1139 @@
+Script started on 2026-07-11 17:12:44+00:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="149" LINES="60"]
+[?2004hyse2@jupyter-yse2:~$ exitpython extract_layerwise_colm.py --out-dir ./reidx_embed
+[?2004lWarning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Resolving data files:   0%|                                                                                                 | 0/1533 [00:00<?, ?it/s]Resolving data files: 100%|███████████████████████████████████████████████████████████████████████████████████| 1533/1533 [00:00<00:00, 38149.27it/s]
+Resolving data files:   0%|                                                                                                 | 0/1533 [00:00<?, ?it/s]Resolving data files: 100%|███████████████████████████████████████████████████████████████████████████████████| 1533/1533 [00:00<00:00, 39850.68it/s]
+[data] Smith42/galaxies@v2.0: selected 500/5000 rows, seed=42, object_id='dr8_id'
+[time] load_galaxies: 42.3s
+[pca] pixel Layer-0: (500, 12288) -> (500, 64)
+[time] pixel_pca: 3.6s
+[list] fetching file listing for HCVYM5w6Gn/colm-results (once, cached)
+[discover] ar_affine_001M (latest): step_00027301.pt (59 checkpoints available)
+[time] ar_affine_001M: resolve+download checkpoint: 0.3s
+Model type: native
+Total parameters: 1.12M
+Trainable parameters: 1.12M
+[load] /home/yse2/hf_data/checkpoints/ar_affine_001M/step_00027301.pt: n_layer=4 tokeniser=affine patch_size=16 n_chan=3 iter=27301
+[time] ar_affine_001M [trained]: load model: 0.3s
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([4, 256, 768])
+[time] ar_affine_001M [trained]: forward+hook (500 rows, bs=16): 20.0s
+[write] reidx_embed/ar_affine_001M_trained_blocks_layerwise.parquet  layers=['encoder', 'h.00', 'h.01', 'h.02', 'h.03']
+[time] ar_affine_001M [trained]: write_parquet: 0.1s
+[discover] ar_affine_001M (untrained): step_00000000.pt (59 checkpoints available)
+Model type: native
+Total parameters: 1.12M
+Trainable parameters: 1.12M
+[load] /home/yse2/hf_data/checkpoints/ar_affine_001M/step_00000000.pt: n_layer=4 tokeniser=affine patch_size=16 n_chan=3 iter=0
+[untrained] ar_affine_001M: using checkpoints/ar_affine_001M/step_00000000.pt from HF
+[time] ar_affine_001M [untrained]: load model: 0.1s
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([4, 256, 768])
+[time] ar_affine_001M [untrained]: forward+hook (500 rows, bs=16): 22.6s
+[write] reidx_embed/ar_affine_001M_untrained_blocks_layerwise.parquet  layers=['encoder', 'h.00', 'h.01', 'h.02', 'h.03']
+[time] ar_affine_001M [untrained]: write_parquet: 0.1s
+[discover] ar_affine_021M (latest): step_00026483.pt (58 checkpoints available)
+[time] ar_affine_021M: resolve+download checkpoint: 0.1s
+Model type: native
+Total parameters: 20.19M
+Trainable parameters: 20.19M
+[load] /home/yse2/hf_data/checkpoints/ar_affine_021M/step_00026483.pt: n_layer=6 tokeniser=affine patch_size=16 n_chan=3 iter=26483
+[time] ar_affine_021M [trained]: load model: 0.4s
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([4, 256, 768])
+[time] ar_affine_021M [trained]: forward+hook (500 rows, bs=16): 25.7s
+[write] reidx_embed/ar_affine_021M_trained_blocks_layerwise.parquet  layers=['encoder', 'h.00', 'h.01', 'h.02', 'h.03', 'h.04', 'h.05']
+[time] ar_affine_021M [trained]: write_parquet: 0.3s
+[discover] ar_affine_021M (untrained): step_00000000.pt (58 checkpoints available)
+Model type: native
+Total parameters: 20.19M
+Trainable parameters: 20.19M
+[load] /home/yse2/hf_data/checkpoints/ar_affine_021M/step_00000000.pt: n_layer=6 tokeniser=affine patch_size=16 n_chan=3 iter=0
+[untrained] ar_affine_021M: using checkpoints/ar_affine_021M/step_00000000.pt from HF
+[time] ar_affine_021M [untrained]: load model: 0.5s
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([4, 256, 768])
+[time] ar_affine_021M [untrained]: forward+hook (500 rows, bs=16): 26.4s
+[write] reidx_embed/ar_affine_021M_untrained_blocks_layerwise.parquet  layers=['encoder', 'h.00', 'h.01', 'h.02', 'h.03', 'h.04', 'h.05']
+[time] ar_affine_021M [untrained]: write_parquet: 0.3s
+[discover] ar_affine_100M (latest): step_00026483.pt (64 checkpoints available)
+[time] ar_affine_100M: resolve+download checkpoint: 0.1s
+Model type: native
+Total parameters: 86.92M
+Trainable parameters: 86.92M
+[load] /home/yse2/hf_data/checkpoints/ar_affine_100M/step_00026483.pt: n_layer=12 tokeniser=affine patch_size=16 n_chan=3 iter=26483
+[time] ar_affine_100M [trained]: load model: 1.7s
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([4, 256, 768])
+[time] ar_affine_100M [trained]: forward+hook (500 rows, bs=16): 28.6s
+[write] reidx_embed/ar_affine_100M_trained_blocks_layerwise.parquet  layers=['encoder', 'h.00', 'h.01', 'h.02', 'h.03', 'h.04', 'h.05', 'h.06', 'h.07', 'h.08', 'h.09', 'h.10', 'h.11']
+[time] ar_affine_100M [trained]: write_parquet: 0.8s
+[discover] ar_affine_100M (untrained): step_00000000.pt (64 checkpoints available)
+Model type: native
+Total parameters: 86.92M
+Trainable parameters: 86.92M
+[load] /home/yse2/hf_data/checkpoints/ar_affine_100M/step_00000000.pt: n_layer=12 tokeniser=affine patch_size=16 n_chan=3 iter=0
+[untrained] ar_affine_100M: using checkpoints/ar_affine_100M/step_00000000.pt from HF
+[time] ar_affine_100M [untrained]: load model: 2.5s
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([4, 256, 768])
+[time] ar_affine_100M [untrained]: forward+hook (500 rows, bs=16): 28.0s
+[write] reidx_embed/ar_affine_100M_untrained_blocks_layerwise.parquet  layers=['encoder', 'h.00', 'h.01', 'h.02', 'h.03', 'h.04', 'h.05', 'h.06', 'h.07', 'h.08', 'h.09', 'h.10', 'h.11']
+[time] ar_affine_100M [untrained]: write_parquet: 0.8s
+[discover] ar_aim_001M (latest): step_00026212.pt (64 checkpoints available)
+[time] ar_aim_001M: resolve+download checkpoint: 0.2s
+Model type: native
+Total parameters: 1.84M
+Trainable parameters: 1.84M
+[load] /home/yse2/hf_data/checkpoints/ar_aim_001M/step_00026212.pt: n_layer=4 tokeniser=aim patch_size=16 n_chan=3 iter=26212
+[time] ar_aim_001M [trained]: load model: 0.1s
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([4, 256, 768])
+[time] ar_aim_001M [trained]: forward+hook (500 rows, bs=16): 27.2s
+[write] reidx_embed/ar_aim_001M_trained_blocks_layerwise.parquet  layers=['encoder', 'h.00', 'h.01', 'h.02', 'h.03']
+[time] ar_aim_001M [trained]: write_parquet: 0.1s
+[discover] ar_aim_001M (untrained): step_00000000.pt (64 checkpoints available)
+Model type: native
+Total parameters: 1.84M
+Trainable parameters: 1.84M
+[load] /home/yse2/hf_data/checkpoints/ar_aim_001M/step_00000000.pt: n_layer=4 tokeniser=aim patch_size=16 n_chan=3 iter=0
+[untrained] ar_aim_001M: using checkpoints/ar_aim_001M/step_00000000.pt from HF
+[time] ar_aim_001M [untrained]: load model: 0.2s
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([4, 256, 768])
+[time] ar_aim_001M [untrained]: forward+hook (500 rows, bs=16): 28.4s
+[write] reidx_embed/ar_aim_001M_untrained_blocks_layerwise.parquet  layers=['encoder', 'h.00', 'h.01', 'h.02', 'h.03']
+[time] ar_aim_001M [untrained]: write_parquet: 0.2s
+[discover] ar_aim_021M (latest): step_00026212.pt (64 checkpoints available)
+[time] ar_aim_021M: resolve+download checkpoint: 0.1s
+Model type: native
+Total parameters: 24.65M
+Trainable parameters: 24.65M
+[load] /home/yse2/hf_data/checkpoints/ar_aim_021M/step_00026212.pt: n_layer=6 tokeniser=aim patch_size=16 n_chan=3 iter=26212
+[time] ar_aim_021M [trained]: load model: 0.6s
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([4, 256, 768])
+[time] ar_aim_021M [trained]: forward+hook (500 rows, bs=16): 28.9s
+[write] reidx_embed/ar_aim_021M_trained_blocks_layerwise.parquet  layers=['encoder', 'h.00', 'h.01', 'h.02', 'h.03', 'h.04', 'h.05']
+[time] ar_aim_021M [trained]: write_parquet: 0.4s
+[discover] ar_aim_021M (untrained): step_00000000.pt (64 checkpoints available)
+Model type: native
+Total parameters: 24.65M
+Trainable parameters: 24.65M
+[load] /home/yse2/hf_data/checkpoints/ar_aim_021M/step_00000000.pt: n_layer=6 tokeniser=aim patch_size=16 n_chan=3 iter=0
+[untrained] ar_aim_021M: using checkpoints/ar_aim_021M/step_00000000.pt from HF
+[time] ar_aim_021M [untrained]: load model: 0.7s
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([4, 256, 768])
+[time] ar_aim_021M [untrained]: forward+hook (500 rows, bs=16): 31.2s
+[write] reidx_embed/ar_aim_021M_untrained_blocks_layerwise.parquet  layers=['encoder', 'h.00', 'h.01', 'h.02', 'h.03', 'h.04', 'h.05']
+[time] ar_aim_021M [untrained]: write_parquet: 0.3s
+[discover] ar_aim_100M (latest): step_00026212.pt (64 checkpoints available)
+[time] ar_aim_100M: resolve+download checkpoint: 0.2s
+Model type: native
+Total parameters: 95.18M
+Trainable parameters: 95.18M
+[load] /home/yse2/hf_data/checkpoints/ar_aim_100M/step_00026212.pt: n_layer=12 tokeniser=aim patch_size=16 n_chan=3 iter=26212
+[time] ar_aim_100M [trained]: load model: 1.8s
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([4, 256, 768])
+[time] ar_aim_100M [trained]: forward+hook (500 rows, bs=16): 29.1s
+[write] reidx_embed/ar_aim_100M_trained_blocks_layerwise.parquet  layers=['encoder', 'h.00', 'h.01', 'h.02', 'h.03', 'h.04', 'h.05', 'h.06', 'h.07', 'h.08', 'h.09', 'h.10', 'h.11']
+[time] ar_aim_100M [trained]: write_parquet: 0.9s
+[discover] ar_aim_100M (untrained): step_00000000.pt (64 checkpoints available)
+Model type: native
+Total parameters: 95.18M
+Trainable parameters: 95.18M
+[load] /home/yse2/hf_data/checkpoints/ar_aim_100M/step_00000000.pt: n_layer=12 tokeniser=aim patch_size=16 n_chan=3 iter=0
+[untrained] ar_aim_100M: using checkpoints/ar_aim_100M/step_00000000.pt from HF
+[time] ar_aim_100M [untrained]: load model: 2.1s
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([4, 256, 768])
+[time] ar_aim_100M [untrained]: forward+hook (500 rows, bs=16): 30.5s
+[write] reidx_embed/ar_aim_100M_untrained_blocks_layerwise.parquet  layers=['encoder', 'h.00', 'h.01', 'h.02', 'h.03', 'h.04', 'h.05', 'h.06', 'h.07', 'h.08', 'h.09', 'h.10', 'h.11']
+[time] ar_aim_100M [untrained]: write_parquet: 0.8s
+[discover] mae_affine_001M (latest): step_00026212.pt (64 checkpoints available)
+[time] mae_affine_001M: resolve+download checkpoint: 0.2s
+Model type: native
+Total parameters: 1.12M
+Trainable parameters: 1.12M
+[load] /home/yse2/hf_data/checkpoints/mae_affine_001M/step_00026212.pt: n_layer=4 tokeniser=affine patch_size=16 n_chan=3 iter=26212
+[time] mae_affine_001M [trained]: load model: 0.0s
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([4, 256, 768])
+[time] mae_affine_001M [trained]: forward+hook (500 rows, bs=16): 29.3s
+[write] reidx_embed/mae_affine_001M_trained_blocks_layerwise.parquet  layers=['encoder', 'h.00', 'h.01', 'h.02', 'h.03']
+[time] mae_affine_001M [trained]: write_parquet: 0.1s
+[discover] mae_affine_001M (untrained): step_00000000.pt (64 checkpoints available)
+Model type: native
+Total parameters: 1.12M
+Trainable parameters: 1.12M
+[load] /home/yse2/hf_data/checkpoints/mae_affine_001M/step_00000000.pt: n_layer=4 tokeniser=affine patch_size=16 n_chan=3 iter=0
+[untrained] mae_affine_001M: using checkpoints/mae_affine_001M/step_00000000.pt from HF
+[time] mae_affine_001M [untrained]: load model: 0.4s
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([4, 256, 768])
+[time] mae_affine_001M [untrained]: forward+hook (500 rows, bs=16): 28.4s
+[write] reidx_embed/mae_affine_001M_untrained_blocks_layerwise.parquet  layers=['encoder', 'h.00', 'h.01', 'h.02', 'h.03']
+[time] mae_affine_001M [untrained]: write_parquet: 0.1s
+[discover] mae_affine_021M (latest): step_00026212.pt (64 checkpoints available)
+[time] mae_affine_021M: resolve+download checkpoint: 0.2s
+Model type: native
+Total parameters: 20.19M
+Trainable parameters: 20.19M
+[load] /home/yse2/hf_data/checkpoints/mae_affine_021M/step_00026212.pt: n_layer=6 tokeniser=affine patch_size=16 n_chan=3 iter=26212
+[time] mae_affine_021M [trained]: load model: 0.4s
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([4, 256, 768])
+[time] mae_affine_021M [trained]: forward+hook (500 rows, bs=16): 29.4s
+[write] reidx_embed/mae_affine_021M_trained_blocks_layerwise.parquet  layers=['encoder', 'h.00', 'h.01', 'h.02', 'h.03', 'h.04', 'h.05']
+[time] mae_affine_021M [trained]: write_parquet: 0.3s
+[discover] mae_affine_021M (untrained): step_00000000.pt (64 checkpoints available)
+Model type: native
+Total parameters: 20.19M
+Trainable parameters: 20.19M
+[load] /home/yse2/hf_data/checkpoints/mae_affine_021M/step_00000000.pt: n_layer=6 tokeniser=affine patch_size=16 n_chan=3 iter=0
+[untrained] mae_affine_021M: using checkpoints/mae_affine_021M/step_00000000.pt from HF
+[time] mae_affine_021M [untrained]: load model: 0.5s
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([4, 256, 768])
+[time] mae_affine_021M [untrained]: forward+hook (500 rows, bs=16): 29.8s
+[write] reidx_embed/mae_affine_021M_untrained_blocks_layerwise.parquet  layers=['encoder', 'h.00', 'h.01', 'h.02', 'h.03', 'h.04', 'h.05']
+[time] mae_affine_021M [untrained]: write_parquet: 0.4s
+[discover] mae_affine_100M (latest): step_00026212.pt (64 checkpoints available)
+[time] mae_affine_100M: resolve+download checkpoint: 0.2s
+Model type: native
+Total parameters: 86.92M
+Trainable parameters: 86.92M
+[load] /home/yse2/hf_data/checkpoints/mae_affine_100M/step_00026212.pt: n_layer=12 tokeniser=affine patch_size=16 n_chan=3 iter=26212
+[time] mae_affine_100M [trained]: load model: 1.6s
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([4, 256, 768])
+[time] mae_affine_100M [trained]: forward+hook (500 rows, bs=16): 30.0s
+[write] reidx_embed/mae_affine_100M_trained_blocks_layerwise.parquet  layers=['encoder', 'h.00', 'h.01', 'h.02', 'h.03', 'h.04', 'h.05', 'h.06', 'h.07', 'h.08', 'h.09', 'h.10', 'h.11']
+[time] mae_affine_100M [trained]: write_parquet: 0.8s
+[discover] mae_affine_100M (untrained): step_00000000.pt (64 checkpoints available)
+Model type: native
+Total parameters: 86.92M
+Trainable parameters: 86.92M
+[load] /home/yse2/hf_data/checkpoints/mae_affine_100M/step_00000000.pt: n_layer=12 tokeniser=affine patch_size=16 n_chan=3 iter=0
+[untrained] mae_affine_100M: using checkpoints/mae_affine_100M/step_00000000.pt from HF
+[time] mae_affine_100M [untrained]: load model: 2.0s
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([4, 256, 768])
+[time] mae_affine_100M [untrained]: forward+hook (500 rows, bs=16): 30.0s
+[write] reidx_embed/mae_affine_100M_untrained_blocks_layerwise.parquet  layers=['encoder', 'h.00', 'h.01', 'h.02', 'h.03', 'h.04', 'h.05', 'h.06', 'h.07', 'h.08', 'h.09', 'h.10', 'h.11']
+[time] mae_affine_100M [untrained]: write_parquet: 0.9s
+[discover] mae_aim_001M (latest): step_00026483.pt (64 checkpoints available)
+[time] mae_aim_001M: resolve+download checkpoint: 0.1s
+Model type: native
+Total parameters: 1.84M
+Trainable parameters: 1.84M
+[load] /home/yse2/hf_data/checkpoints/mae_aim_001M/step_00026483.pt: n_layer=4 tokeniser=aim patch_size=16 n_chan=3 iter=26483
+[time] mae_aim_001M [trained]: load model: 0.1s
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([4, 256, 768])
+[time] mae_aim_001M [trained]: forward+hook (500 rows, bs=16): 29.4s
+[write] reidx_embed/mae_aim_001M_trained_blocks_layerwise.parquet  layers=['encoder', 'h.00', 'h.01', 'h.02', 'h.03']
+[time] mae_aim_001M [trained]: write_parquet: 0.1s
+[discover] mae_aim_001M (untrained): step_00000000.pt (64 checkpoints available)
+Model type: native
+Total parameters: 1.84M
+Trainable parameters: 1.84M
+[load] /home/yse2/hf_data/checkpoints/mae_aim_001M/step_00000000.pt: n_layer=4 tokeniser=aim patch_size=16 n_chan=3 iter=0
+[untrained] mae_aim_001M: using checkpoints/mae_aim_001M/step_00000000.pt from HF
+[time] mae_aim_001M [untrained]: load model: 0.2s
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([4, 256, 768])
+[time] mae_aim_001M [untrained]: forward+hook (500 rows, bs=16): 27.2s
+[write] reidx_embed/mae_aim_001M_untrained_blocks_layerwise.parquet  layers=['encoder', 'h.00', 'h.01', 'h.02', 'h.03']
+[time] mae_aim_001M [untrained]: write_parquet: 0.1s
+[discover] mae_aim_021M (latest): step_00026212.pt (64 checkpoints available)
+[time] mae_aim_021M: resolve+download checkpoint: 0.1s
+Model type: native
+Total parameters: 24.65M
+Trainable parameters: 24.65M
+[load] /home/yse2/hf_data/checkpoints/mae_aim_021M/step_00026212.pt: n_layer=6 tokeniser=aim patch_size=16 n_chan=3 iter=26212
+[time] mae_aim_021M [trained]: load model: 0.5s
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([4, 256, 768])
+[time] mae_aim_021M [trained]: forward+hook (500 rows, bs=16): 29.4s
+[write] reidx_embed/mae_aim_021M_trained_blocks_layerwise.parquet  layers=['encoder', 'h.00', 'h.01', 'h.02', 'h.03', 'h.04', 'h.05']
+[time] mae_aim_021M [trained]: write_parquet: 0.3s
+[discover] mae_aim_021M (untrained): step_00000000.pt (64 checkpoints available)
+Model type: native
+Total parameters: 24.65M
+Trainable parameters: 24.65M
+[load] /home/yse2/hf_data/checkpoints/mae_aim_021M/step_00000000.pt: n_layer=6 tokeniser=aim patch_size=16 n_chan=3 iter=0
+[untrained] mae_aim_021M: using checkpoints/mae_aim_021M/step_00000000.pt from HF
+[time] mae_aim_021M [untrained]: load model: 0.6s
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([4, 256, 768])
+[time] mae_aim_021M [untrained]: forward+hook (500 rows, bs=16): 29.2s
+[write] reidx_embed/mae_aim_021M_untrained_blocks_layerwise.parquet  layers=['encoder', 'h.00', 'h.01', 'h.02', 'h.03', 'h.04', 'h.05']
+[time] mae_aim_021M [untrained]: write_parquet: 0.3s
+[discover] mae_aim_100M (latest): step_00026212.pt (64 checkpoints available)
+[time] mae_aim_100M: resolve+download checkpoint: 0.2s
+Model type: native
+Total parameters: 95.18M
+Trainable parameters: 95.18M
+[load] /home/yse2/hf_data/checkpoints/mae_aim_100M/step_00026212.pt: n_layer=12 tokeniser=aim patch_size=16 n_chan=3 iter=26212
+[time] mae_aim_100M [trained]: load model: 1.9s
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([4, 256, 768])
+[time] mae_aim_100M [trained]: forward+hook (500 rows, bs=16): 29.1s
+[write] reidx_embed/mae_aim_100M_trained_blocks_layerwise.parquet  layers=['encoder', 'h.00', 'h.01', 'h.02', 'h.03', 'h.04', 'h.05', 'h.06', 'h.07', 'h.08', 'h.09', 'h.10', 'h.11']
+[time] mae_aim_100M [trained]: write_parquet: 0.9s
+[discover] mae_aim_100M (untrained): step_00000000.pt (64 checkpoints available)
+Model type: native
+Total parameters: 95.18M
+Trainable parameters: 95.18M
+[load] /home/yse2/hf_data/checkpoints/mae_aim_100M/step_00000000.pt: n_layer=12 tokeniser=aim patch_size=16 n_chan=3 iter=0
+[untrained] mae_aim_100M: using checkpoints/mae_aim_100M/step_00000000.pt from HF
+[time] mae_aim_100M [untrained]: load model: 2.3s
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([16, 256, 768])
+torch.Size([4, 256, 768])
+[time] mae_aim_100M [untrained]: forward+hook (500 rows, bs=16): 29.0s
+[write] reidx_embed/mae_aim_100M_untrained_blocks_layerwise.parquet  layers=['encoder', 'h.00', 'h.01', 'h.02', 'h.03', 'h.04', 'h.05', 'h.06', 'h.07', 'h.08', 'h.09', 'h.10', 'h.11']
+[time] mae_aim_100M [untrained]: write_parquet: 0.9s
+
+============================================================
+TIMING SUMMARY  (total: 12.6 min)
+============================================================
+      42.3s  load_galaxies
+       3.6s  pixel_pca
+       0.3s  ar_affine_001M: resolve+download checkpoint
+       0.3s  ar_affine_001M [trained]: load model
+      20.0s  ar_affine_001M [trained]: forward+hook (500 rows, bs=16)
+       0.1s  ar_affine_001M [trained]: write_parquet
+      20.5s  ar_affine_001M [trained]: TOTAL
+       0.1s  ar_affine_001M [untrained]: load model
+      22.6s  ar_affine_001M [untrained]: forward+hook (500 rows, bs=16)
+       0.1s  ar_affine_001M [untrained]: write_parquet
+      22.9s  ar_affine_001M [untrained]: TOTAL
+       0.1s  ar_affine_021M: resolve+download checkpoint
+       0.4s  ar_affine_021M [trained]: load model
+      25.7s  ar_affine_021M [trained]: forward+hook (500 rows, bs=16)
+       0.3s  ar_affine_021M [trained]: write_parquet
+      26.5s  ar_affine_021M [trained]: TOTAL
+       0.5s  ar_affine_021M [untrained]: load model
+      26.4s  ar_affine_021M [untrained]: forward+hook (500 rows, bs=16)
+       0.3s  ar_affine_021M [untrained]: write_parquet
+      27.2s  ar_affine_021M [untrained]: TOTAL
+       0.1s  ar_affine_100M: resolve+download checkpoint
+       1.7s  ar_affine_100M [trained]: load model
+      28.6s  ar_affine_100M [trained]: forward+hook (500 rows, bs=16)
+       0.8s  ar_affine_100M [trained]: write_parquet
+      31.2s  ar_affine_100M [trained]: TOTAL
+       2.5s  ar_affine_100M [untrained]: load model
+      28.0s  ar_affine_100M [untrained]: forward+hook (500 rows, bs=16)
+       0.8s  ar_affine_100M [untrained]: write_parquet
+      31.4s  ar_affine_100M [untrained]: TOTAL
+       0.2s  ar_aim_001M: resolve+download checkpoint
+       0.1s  ar_aim_001M [trained]: load model
+      27.2s  ar_aim_001M [trained]: forward+hook (500 rows, bs=16)
+       0.1s  ar_aim_001M [trained]: write_parquet
+      27.4s  ar_aim_001M [trained]: TOTAL
+       0.2s  ar_aim_001M [untrained]: load model
+      28.4s  ar_aim_001M [untrained]: forward+hook (500 rows, bs=16)
+       0.2s  ar_aim_001M [untrained]: write_parquet
+      28.8s  ar_aim_001M [untrained]: TOTAL
+       0.1s  ar_aim_021M: resolve+download checkpoint
+       0.6s  ar_aim_021M [trained]: load model
+      28.9s  ar_aim_021M [trained]: forward+hook (500 rows, bs=16)
+       0.4s  ar_aim_021M [trained]: write_parquet
+      29.9s  ar_aim_021M [trained]: TOTAL
+       0.7s  ar_aim_021M [untrained]: load model
+      31.2s  ar_aim_021M [untrained]: forward+hook (500 rows, bs=16)
+       0.3s  ar_aim_021M [untrained]: write_parquet
+      32.2s  ar_aim_021M [untrained]: TOTAL
+       0.2s  ar_aim_100M: resolve+download checkpoint
+       1.8s  ar_aim_100M [trained]: load model
+      29.1s  ar_aim_100M [trained]: forward+hook (500 rows, bs=16)
+       0.9s  ar_aim_100M [trained]: write_parquet
+      31.8s  ar_aim_100M [trained]: TOTAL
+       2.1s  ar_aim_100M [untrained]: load model
+      30.5s  ar_aim_100M [untrained]: forward+hook (500 rows, bs=16)
+       0.8s  ar_aim_100M [untrained]: write_parquet
+      33.4s  ar_aim_100M [untrained]: TOTAL
+       0.2s  mae_affine_001M: resolve+download checkpoint
+       0.0s  mae_affine_001M [trained]: load model
+      29.3s  mae_affine_001M [trained]: forward+hook (500 rows, bs=16)
+       0.1s  mae_affine_001M [trained]: write_parquet
+      29.5s  mae_affine_001M [trained]: TOTAL
+       0.4s  mae_affine_001M [untrained]: load model
+      28.4s  mae_affine_001M [untrained]: forward+hook (500 rows, bs=16)
+       0.1s  mae_affine_001M [untrained]: write_parquet
+      28.9s  mae_affine_001M [untrained]: TOTAL
+       0.2s  mae_affine_021M: resolve+download checkpoint
+       0.4s  mae_affine_021M [trained]: load model
+      29.4s  mae_affine_021M [trained]: forward+hook (500 rows, bs=16)
+       0.3s  mae_affine_021M [trained]: write_parquet
+      30.1s  mae_affine_021M [trained]: TOTAL
+       0.5s  mae_affine_021M [untrained]: load model
+      29.8s  mae_affine_021M [untrained]: forward+hook (500 rows, bs=16)
+       0.4s  mae_affine_021M [untrained]: write_parquet
+      30.7s  mae_affine_021M [untrained]: TOTAL
+       0.2s  mae_affine_100M: resolve+download checkpoint
+       1.6s  mae_affine_100M [trained]: load model
+      30.0s  mae_affine_100M [trained]: forward+hook (500 rows, bs=16)
+       0.8s  mae_affine_100M [trained]: write_parquet
+      32.5s  mae_affine_100M [trained]: TOTAL
+       2.0s  mae_affine_100M [untrained]: load model
+      30.0s  mae_affine_100M [untrained]: forward+hook (500 rows, bs=16)
+       0.9s  mae_affine_100M [untrained]: write_parquet
+      33.0s  mae_affine_100M [untrained]: TOTAL
+       0.1s  mae_aim_001M: resolve+download checkpoint
+       0.1s  mae_aim_001M [trained]: load model
+      29.4s  mae_aim_001M [trained]: forward+hook (500 rows, bs=16)
+       0.1s  mae_aim_001M [trained]: write_parquet
+      29.5s  mae_aim_001M [trained]: TOTAL
+       0.2s  mae_aim_001M [untrained]: load model
+      27.2s  mae_aim_001M [untrained]: forward+hook (500 rows, bs=16)
+       0.1s  mae_aim_001M [untrained]: write_parquet
+      27.5s  mae_aim_001M [untrained]: TOTAL
+       0.1s  mae_aim_021M: resolve+download checkpoint
+       0.5s  mae_aim_021M [trained]: load model
+      29.4s  mae_aim_021M [trained]: forward+hook (500 rows, bs=16)
+       0.3s  mae_aim_021M [trained]: write_parquet
+      30.2s  mae_aim_021M [trained]: TOTAL
+       0.6s  mae_aim_021M [untrained]: load model
+      29.2s  mae_aim_021M [untrained]: forward+hook (500 rows, bs=16)
+       0.3s  mae_aim_021M [untrained]: write_parquet
+      30.1s  mae_aim_021M [untrained]: TOTAL
+       0.2s  mae_aim_100M: resolve+download checkpoint
+       1.9s  mae_aim_100M [trained]: load model
+      29.1s  mae_aim_100M [trained]: forward+hook (500 rows, bs=16)
+       0.9s  mae_aim_100M [trained]: write_parquet
+      31.9s  mae_aim_100M [trained]: TOTAL
+       2.3s  mae_aim_100M [untrained]: load model
+      29.0s  mae_aim_100M [untrained]: forward+hook (500 rows, bs=16)
+       0.9s  mae_aim_100M [untrained]: write_parquet
+      32.2s  mae_aim_100M [untrained]: TOTAL
+============================================================
+[write] reidx_embed/timing.json
+[done]
+[?2004hyse2@jupyter-yse2:~$ python extract_layerwise_colm.py --out-dir ./reidx_embed[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kpython extract_layerwise_colm.py --out-dir ./reidx_embed[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kexit
+[?2004lexit
+
+Script done on 2026-07-11 17:27:34+00:00 [COMMAND_EXIT_CODE="0"]
