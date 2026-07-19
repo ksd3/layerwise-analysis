@@ -113,13 +113,144 @@ DEFAULT_MODELS = [
 # returns every file in the whole repo regardless of which model you ask
 # about, so re-fetching per model was pure waste.
 _REPO_FILES_CACHE: dict[str, list[str]] = {}
+_REPO_SIZES_CACHE: dict[str, dict[str, int]] = {}  # repo -> {path: size_bytes}
+
+
+def _fmt_bytes(n: int) -> str:
+    for unit in ("B", "KB", "MB", "GB"):
+        if abs(n) < 1024:
+            return f"{n:.1f} {unit}"
+        n /= 1024
+    return f"{n:.1f} TB"
 
 
 def _repo_files(repo: str) -> list[str]:
     if repo not in _REPO_FILES_CACHE:
         print(f"[list] fetching file listing for {repo} (once, cached)")
-        _REPO_FILES_CACHE[repo] = HfApi().list_repo_files(repo, repo_type="dataset")
+        api = HfApi()
+        # list_repo_tree gives us sizes; fall back to list_repo_files if unavailable
+        try:
+            tree = list(api.list_repo_tree(repo, repo_type="dataset", recursive=True))
+            sizes: dict[str, int] = {}
+            paths: list[str] = []
+            for item in tree:
+                p = getattr(item, "path", None)
+                s = getattr(item, "size", None)
+                t = getattr(item, "type", None)
+                if p and t != "directory":
+                    paths.append(p)
+                    if s is not None:
+                        sizes[p] = s
+            _REPO_FILES_CACHE[repo] = paths
+            _REPO_SIZES_CACHE[repo] = sizes
+        except Exception:
+            _REPO_FILES_CACHE[repo] = list(api.list_repo_files(repo, repo_type="dataset"))
+            _REPO_SIZES_CACHE[repo] = {}
     return _REPO_FILES_CACHE[repo]
+
+
+def _ckpt_size(repo: str, path: str) -> str:
+    """Return human-readable size for a repo-relative checkpoint path, or '?' if unknown."""
+    sizes = _REPO_SIZES_CACHE.get(repo, {})
+    b = sizes.get(path)
+    return _fmt_bytes(b) if b is not None else "?"
+
+
+def _dataset_size_str(dataset: str, revision: str) -> str:
+    """Best-effort total size of a HF dataset (sum of all data files)."""
+    try:
+        info = HfApi().dataset_info(dataset, revision=revision)
+        total = 0
+        found = False
+        # card_data siblings both have size_in_bytes
+        siblings = getattr(info, "siblings", None) or []
+        for s in siblings:
+            sz = getattr(s, "size", None)
+            if sz:
+                total += sz
+                found = True
+        if found and total > 0:
+            return _fmt_bytes(total)
+        # fallback: cardData.dataset_info.dataset_size
+        card = getattr(info, "card_data", None) or {}
+        ds_size = (card.get("dataset_info") or {}).get("dataset_size")
+        if ds_size:
+            return _fmt_bytes(int(ds_size))
+    except Exception:
+        pass
+    return "?"
+
+
+def print_download_plan(args, overrides: dict[str, str]) -> None:
+    """Print a full manifest of what will be downloaded before touching the network."""
+    # ensure repo file listing + sizes are populated (fetched once here)
+    _repo_files(REPO)
+
+    print()
+    print("=" * 65)
+    print("DOWNLOAD PLAN  (sizes from HF metadata, before any download)")
+    print("=" * 65)
+
+    # Dataset
+    ds_size = _dataset_size_str(args.dataset, args.revision)
+    print(f"\n  Dataset  : {args.dataset}@{args.revision}")
+    print(f"  Total    : {ds_size}  (streamed — only first {args.pool_size} rows read)")
+
+    # Checkpoints
+    print(f"\n  Checkpoints from {REPO}:")
+    total_ckpt_bytes = 0
+    already_local = 0
+    local_dir = str(Path(args.local_dir).expanduser())
+    sizes = _REPO_SIZES_CACHE.get(REPO, {})
+
+    def _local_path(rel: str) -> Path:
+        return Path(local_dir) / rel
+
+    rows_to_print: list[tuple[str, str, str, str]] = []  # model, tag, rel_path, size_str
+    for name in args.models:
+        for which in (["latest", "untrained"] if args.untrained else ["latest"]):
+            try:
+                if which == "latest" and overrides and name in overrides:
+                    val = overrides[name]
+                    loc = Path(val).expanduser()
+                    if loc.exists():
+                        rows_to_print.append((name, which, str(loc), "local"))
+                        already_local += 1
+                        continue
+                    rel = val
+                else:
+                    steps = _list_step_files(REPO, name)
+                    if not steps:
+                        rows_to_print.append((name, which, "NOT FOUND", "?"))
+                        continue
+                    _, rel = steps[0] if which == "untrained" else steps[-1]
+
+                sz_bytes = sizes.get(rel)
+                sz_str = _fmt_bytes(sz_bytes) if sz_bytes else "?"
+                loc = _local_path(rel)
+                if loc.exists():
+                    sz_str += "  [cached]"
+                    already_local += 1
+                else:
+                    if sz_bytes:
+                        total_ckpt_bytes += sz_bytes
+                rows_to_print.append((name, which, rel, sz_str))
+            except Exception as e:
+                rows_to_print.append((name, which, f"ERROR: {e}", "?"))
+
+    col_w = max((len(r[0]) for r in rows_to_print), default=10) + 2
+    for model, which, rel, sz in rows_to_print:
+        tag = f"[{which}]"
+        print(f"    {model:<{col_w}} {tag:<12} {sz:<18}  {rel}")
+
+    if total_ckpt_bytes:
+        print(f"\n  Net checkpoint download : {_fmt_bytes(total_ckpt_bytes)}"
+              f"  ({already_local} already cached)")
+    else:
+        print(f"\n  All checkpoints already cached locally.")
+
+    print("=" * 65)
+    print()
 
 
 def _list_step_files(repo: str, model_name: str) -> list[tuple[int, str]]:
@@ -192,7 +323,7 @@ def parse_ckpt_overrides(pairs: list[str] | None) -> dict[str, str]:
 
 def parse_args():
     p = argparse.ArgumentParser(__doc__)
-    p.add_argument("--out-dir", type=Path, required=True)
+    p.add_argument("--out-dir", type=Path, default=Path("./reindex_embeddings"))
     p.add_argument("--models", nargs="+", default=list(DEFAULT_MODELS),
                    help="Model names under checkpoints/<name>/ in the HF repo. "
                         "Default resolution is always repo discovery (latest "
@@ -513,6 +644,8 @@ def main():
     Path(local_dir).mkdir(parents=True, exist_ok=True)
     overrides = parse_ckpt_overrides(args.ckpt)
     from huggingface_hub import hf_hub_download
+
+    print_download_plan(args, overrides)
 
     with timed("load_galaxies", timings):
         rows, object_ids = load_galaxies(args.dataset, args.n, args.pool_size,

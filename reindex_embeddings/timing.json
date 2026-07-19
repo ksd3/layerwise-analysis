@@ -1,0 +1,445 @@
+{
+  "total_seconds": 1288.4873389999993,
+  "steps": [
+    {
+      "label": "load_galaxies",
+      "seconds": 324.2098315999974
+    },
+    {
+      "label": "pixel_pca",
+      "seconds": 0.5034921000005852
+    },
+    {
+      "label": "ar_affine_001M: resolve+download checkpoint",
+      "seconds": 15.326489200000651
+    },
+    {
+      "label": "ar_affine_001M [trained]: load model",
+      "seconds": 0.23096220000297762
+    },
+    {
+      "label": "ar_affine_001M [trained]: forward+hook (500 rows, bs=16)",
+      "seconds": 2.103982900000119
+    },
+    {
+      "label": "ar_affine_001M [trained]: write_parquet",
+      "seconds": 0.13000359999932698
+    },
+    {
+      "label": "ar_affine_001M [trained]: TOTAL",
+      "seconds": 2.4670771999990393
+    },
+    {
+      "label": "ar_affine_001M [untrained]: load model",
+      "seconds": 4.228859099999681
+    },
+    {
+      "label": "ar_affine_001M [untrained]: forward+hook (500 rows, bs=16)",
+      "seconds": 1.9626897999987705
+    },
+    {
+      "label": "ar_affine_001M [untrained]: write_parquet",
+      "seconds": 0.07740950000152225
+    },
+    {
+      "label": "ar_affine_001M [untrained]: TOTAL",
+      "seconds": 6.271726499999204
+    },
+    {
+      "label": "ar_affine_021M: resolve+download checkpoint",
+      "seconds": 28.21811069999967
+    },
+    {
+      "label": "ar_affine_021M [trained]: load model",
+      "seconds": 0.4720994999988761
+    },
+    {
+      "label": "ar_affine_021M [trained]: forward+hook (500 rows, bs=16)",
+      "seconds": 3.7124360000016168
+    },
+    {
+      "label": "ar_affine_021M [trained]: write_parquet",
+      "seconds": 0.2961058000000776
+    },
+    {
+      "label": "ar_affine_021M [trained]: TOTAL",
+      "seconds": 4.490327800001978
+    },
+    {
+      "label": "ar_affine_021M [untrained]: load model",
+      "seconds": 23.00478529999964
+    },
+    {
+      "label": "ar_affine_021M [untrained]: forward+hook (500 rows, bs=16)",
+      "seconds": 3.387784400001692
+    },
+    {
+      "label": "ar_affine_021M [untrained]: write_parquet",
+      "seconds": 0.16481840000051307
+    },
+    {
+      "label": "ar_affine_021M [untrained]: TOTAL",
+      "seconds": 26.563253199998144
+    },
+    {
+      "label": "ar_affine_100M: resolve+download checkpoint",
+      "seconds": 92.11499610000101
+    },
+    {
+      "label": "ar_affine_100M [trained]: load model",
+      "seconds": 1.9991694999989704
+    },
+    {
+      "label": "ar_affine_100M [trained]: forward+hook (500 rows, bs=16)",
+      "seconds": 9.581081899999845
+    },
+    {
+      "label": "ar_affine_100M [trained]: write_parquet",
+      "seconds": 0.7465331999992486
+    },
+    {
+      "label": "ar_affine_100M [trained]: TOTAL",
+      "seconds": 12.341414499998791
+    },
+    {
+      "label": "ar_affine_100M [untrained]: load model",
+      "seconds": 90.3671362999994
+    },
+    {
+      "label": "ar_affine_100M [untrained]: forward+hook (500 rows, bs=16)",
+      "seconds": 8.631065300000046
+    },
+    {
+      "label": "ar_affine_100M [untrained]: write_parquet",
+      "seconds": 0.4146199999995588
+    },
+    {
+      "label": "ar_affine_100M [untrained]: TOTAL",
+      "seconds": 99.4245013999971
+    },
+    {
+      "label": "ar_aim_001M: resolve+download checkpoint",
+      "seconds": 4.3492933999987144
+    },
+    {
+      "label": "ar_aim_001M [trained]: load model",
+      "seconds": 0.03951900000174646
+    },
+    {
+      "label": "ar_aim_001M [trained]: forward+hook (500 rows, bs=16)",
+      "seconds": 1.945001100000809
+    },
+    {
+      "label": "ar_aim_001M [trained]: write_parquet",
+      "seconds": 0.05064210000273306
+    },
+    {
+      "label": "ar_aim_001M [trained]: TOTAL",
+      "seconds": 2.0379270000012184
+    },
+    {
+      "label": "ar_aim_001M [untrained]: load model",
+      "seconds": 4.4424647000014374
+    },
+    {
+      "label": "ar_aim_001M [untrained]: forward+hook (500 rows, bs=16)",
+      "seconds": 1.6272204000015336
+    },
+    {
+      "label": "ar_aim_001M [untrained]: write_parquet",
+      "seconds": 0.04036859999905573
+    },
+    {
+      "label": "ar_aim_001M [untrained]: TOTAL",
+      "seconds": 6.111732999997912
+    },
+    {
+      "label": "ar_aim_021M: resolve+download checkpoint",
+      "seconds": 21.235013999998046
+    },
+    {
+      "label": "ar_aim_021M [trained]: load model",
+      "seconds": 0.3420549000002211
+    },
+    {
+      "label": "ar_aim_021M [trained]: forward+hook (500 rows, bs=16)",
+      "seconds": 3.5746012999989034
+    },
+    {
+      "label": "ar_aim_021M [trained]: write_parquet",
+      "seconds": 0.1601702000007208
+    },
+    {
+      "label": "ar_aim_021M [trained]: TOTAL",
+      "seconds": 4.08124350000071
+    },
+    {
+      "label": "ar_aim_021M [untrained]: load model",
+      "seconds": 20.779937999999675
+    },
+    {
+      "label": "ar_aim_021M [untrained]: forward+hook (500 rows, bs=16)",
+      "seconds": 3.724272600000404
+    },
+    {
+      "label": "ar_aim_021M [untrained]: write_parquet",
+      "seconds": 0.25368499999967753
+    },
+    {
+      "label": "ar_aim_021M [untrained]: TOTAL",
+      "seconds": 24.76454360000207
+    },
+    {
+      "label": "ar_aim_100M: resolve+download checkpoint",
+      "seconds": 66.26287769999908
+    },
+    {
+      "label": "ar_aim_100M [trained]: load model",
+      "seconds": 2.290193199998612
+    },
+    {
+      "label": "ar_aim_100M [trained]: forward+hook (500 rows, bs=16)",
+      "seconds": 9.180419100001018
+    },
+    {
+      "label": "ar_aim_100M [trained]: write_parquet",
+      "seconds": 0.7070324999986042
+    },
+    {
+      "label": "ar_aim_100M [trained]: TOTAL",
+      "seconds": 12.190907000000152
+    },
+    {
+      "label": "ar_aim_100M [untrained]: load model",
+      "seconds": 79.49339950000285
+    },
+    {
+      "label": "ar_aim_100M [untrained]: forward+hook (500 rows, bs=16)",
+      "seconds": 9.251670900001045
+    },
+    {
+      "label": "ar_aim_100M [untrained]: write_parquet",
+      "seconds": 0.645142900000792
+    },
+    {
+      "label": "ar_aim_100M [untrained]: TOTAL",
+      "seconds": 89.40412900000229
+    },
+    {
+      "label": "mae_affine_001M: resolve+download checkpoint",
+      "seconds": 4.699127699997916
+    },
+    {
+      "label": "mae_affine_001M [trained]: load model",
+      "seconds": 0.05113130000245292
+    },
+    {
+      "label": "mae_affine_001M [trained]: forward+hook (500 rows, bs=16)",
+      "seconds": 2.258534699998563
+    },
+    {
+      "label": "mae_affine_001M [trained]: write_parquet",
+      "seconds": 0.07895779999671504
+    },
+    {
+      "label": "mae_affine_001M [trained]: TOTAL",
+      "seconds": 2.3923863999989408
+    },
+    {
+      "label": "mae_affine_001M [untrained]: load model",
+      "seconds": 3.564168699998845
+    },
+    {
+      "label": "mae_affine_001M [untrained]: forward+hook (500 rows, bs=16)",
+      "seconds": 2.2388387999999395
+    },
+    {
+      "label": "mae_affine_001M [untrained]: write_parquet",
+      "seconds": 0.06867280000005849
+    },
+    {
+      "label": "mae_affine_001M [untrained]: TOTAL",
+      "seconds": 5.873719400002301
+    },
+    {
+      "label": "mae_affine_021M: resolve+download checkpoint",
+      "seconds": 16.4996057999997
+    },
+    {
+      "label": "mae_affine_021M [trained]: load model",
+      "seconds": 0.43418039999960456
+    },
+    {
+      "label": "mae_affine_021M [trained]: forward+hook (500 rows, bs=16)",
+      "seconds": 3.9115653000008024
+    },
+    {
+      "label": "mae_affine_021M [trained]: write_parquet",
+      "seconds": 0.2895711000019219
+    },
+    {
+      "label": "mae_affine_021M [trained]: TOTAL",
+      "seconds": 4.642496699998446
+    },
+    {
+      "label": "mae_affine_021M [untrained]: load model",
+      "seconds": 19.52477700000236
+    },
+    {
+      "label": "mae_affine_021M [untrained]: forward+hook (500 rows, bs=16)",
+      "seconds": 3.618747100001201
+    },
+    {
+      "label": "mae_affine_021M [untrained]: write_parquet",
+      "seconds": 0.2656831999993301
+    },
+    {
+      "label": "mae_affine_021M [untrained]: TOTAL",
+      "seconds": 23.414573800000653
+    },
+    {
+      "label": "mae_affine_100M: resolve+download checkpoint",
+      "seconds": 64.43153259999963
+    },
+    {
+      "label": "mae_affine_100M [trained]: load model",
+      "seconds": 2.2407830999982252
+    },
+    {
+      "label": "mae_affine_100M [trained]: forward+hook (500 rows, bs=16)",
+      "seconds": 9.408710300001985
+    },
+    {
+      "label": "mae_affine_100M [trained]: write_parquet",
+      "seconds": 0.675032299997838
+    },
+    {
+      "label": "mae_affine_100M [trained]: TOTAL",
+      "seconds": 12.337972799999989
+    },
+    {
+      "label": "mae_affine_100M [untrained]: load model",
+      "seconds": 61.72195080000165
+    },
+    {
+      "label": "mae_affine_100M [untrained]: forward+hook (500 rows, bs=16)",
+      "seconds": 9.37230609999824
+    },
+    {
+      "label": "mae_affine_100M [untrained]: write_parquet",
+      "seconds": 0.4362954999996873
+    },
+    {
+      "label": "mae_affine_100M [untrained]: TOTAL",
+      "seconds": 71.54536480000024
+    },
+    {
+      "label": "mae_aim_001M: resolve+download checkpoint",
+      "seconds": 5.362178700001095
+    },
+    {
+      "label": "mae_aim_001M [trained]: load model",
+      "seconds": 0.06402660000094329
+    },
+    {
+      "label": "mae_aim_001M [trained]: forward+hook (500 rows, bs=16)",
+      "seconds": 1.9805846999988717
+    },
+    {
+      "label": "mae_aim_001M [trained]: write_parquet",
+      "seconds": 0.08287989999735146
+    },
+    {
+      "label": "mae_aim_001M [trained]: TOTAL",
+      "seconds": 2.130970999998681
+    },
+    {
+      "label": "mae_aim_001M [untrained]: load model",
+      "seconds": 4.5374865000012505
+    },
+    {
+      "label": "mae_aim_001M [untrained]: forward+hook (500 rows, bs=16)",
+      "seconds": 2.001728399998683
+    },
+    {
+      "label": "mae_aim_001M [untrained]: write_parquet",
+      "seconds": 0.0652485999999044
+    },
+    {
+      "label": "mae_aim_001M [untrained]: TOTAL",
+      "seconds": 6.606419699997787
+    },
+    {
+      "label": "mae_aim_021M: resolve+download checkpoint",
+      "seconds": 23.244338600001356
+    },
+    {
+      "label": "mae_aim_021M [trained]: load model",
+      "seconds": 0.5337639999997918
+    },
+    {
+      "label": "mae_aim_021M [trained]: forward+hook (500 rows, bs=16)",
+      "seconds": 3.9377869999989343
+    },
+    {
+      "label": "mae_aim_021M [trained]: write_parquet",
+      "seconds": 0.27599560000089696
+    },
+    {
+      "label": "mae_aim_021M [trained]: TOTAL",
+      "seconds": 4.757453300000634
+    },
+    {
+      "label": "mae_aim_021M [untrained]: load model",
+      "seconds": 26.4485500999981
+    },
+    {
+      "label": "mae_aim_021M [untrained]: forward+hook (500 rows, bs=16)",
+      "seconds": 3.6826534000028914
+    },
+    {
+      "label": "mae_aim_021M [untrained]: write_parquet",
+      "seconds": 0.16584639999928186
+    },
+    {
+      "label": "mae_aim_021M [untrained]: TOTAL",
+      "seconds": 30.30412509999951
+    },
+    {
+      "label": "mae_aim_100M: resolve+download checkpoint",
+      "seconds": 64.85124619999988
+    },
+    {
+      "label": "mae_aim_100M [trained]: load model",
+      "seconds": 1.2608480000017153
+    },
+    {
+      "label": "mae_aim_100M [trained]: forward+hook (500 rows, bs=16)",
+      "seconds": 9.6009129999984
+    },
+    {
+      "label": "mae_aim_100M [trained]: write_parquet",
+      "seconds": 0.4149297000003571
+    },
+    {
+      "label": "mae_aim_100M [trained]: TOTAL",
+      "seconds": 11.291980899997725
+    },
+    {
+      "label": "mae_aim_100M [untrained]: load model",
+      "seconds": 80.93421519999902
+    },
+    {
+      "label": "mae_aim_100M [untrained]: forward+hook (500 rows, bs=16)",
+      "seconds": 9.178084700000909
+    },
+    {
+      "label": "mae_aim_100M [untrained]: write_parquet",
+      "seconds": 0.40881069999886677
+    },
+    {
+      "label": "mae_aim_100M [untrained]: TOTAL",
+      "seconds": 90.53267720000076
+    }
+  ]
+}
