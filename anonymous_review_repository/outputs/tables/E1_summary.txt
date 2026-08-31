@@ -1,0 +1,3 @@
+E1 contains 175 model/cohort curves.
+139 curves (79.4%) have Holm-corrected p <= 0.05.
+Use E2 and E7 to decide whether the peak consistently moves toward late depth.

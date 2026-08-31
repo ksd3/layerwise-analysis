@@ -1,0 +1,3 @@
+Regression effects supported by both permutation p <= 0.05 and the bootstrap interval: 0.
+Training comparisons whose family-bootstrap interval excludes zero: 4.
+Use the leave-family-out table to judge whether these relationships generalize beyond known families.

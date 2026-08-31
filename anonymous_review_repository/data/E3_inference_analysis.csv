@@ -1,0 +1,9 @@
+cohort,target,direction,families,mean_regret,family_bootstrap_low,family_bootstrap_high,interval_excludes_zero,direction_of_regret
+jwst,log_flux_radius,hsc_to_other,11,-3.619967351134141,-6.200294070976338,-1.814438868270712,True,label_free_worse
+jwst,log_flux_radius,other_to_hsc,11,-0.6377676510333875,-0.840003483349036,-0.4457005651532539,True,label_free_worse
+jwst,mag_auto,hsc_to_other,11,-2.178468813143208,-3.759943397277023,-1.1344527168449146,True,label_free_worse
+jwst,mag_auto,other_to_hsc,11,-0.8433764050203373,-1.5691711967509996,-0.3879020677225419,True,label_free_worse
+legacysurvey,g_minus_r,hsc_to_other,11,-0.0601194915276495,-0.0901769152218537,-0.0344955852062611,True,label_free_worse
+legacysurvey,g_minus_r,other_to_hsc,11,-0.1011696940261826,-0.1299778468414288,-0.0734201281264562,True,label_free_worse
+legacysurvey,log_shape,hsc_to_other,11,-0.7460808177762281,-1.0544064455267683,-0.4739032327713741,True,label_free_worse
+legacysurvey,log_shape,other_to_hsc,11,-0.8842628681393753,-1.0266454548280963,-0.7358643465161296,True,label_free_worse

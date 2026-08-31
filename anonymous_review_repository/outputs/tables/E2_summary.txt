@@ -1,0 +1,3 @@
+All cohort means are positive: False.
+Families matching the overall direction: 34 of 54 family/cohort groups.
+A universal increasing-depth claim requires consistent positive effects across cohorts, families, and metrics.

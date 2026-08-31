@@ -1,0 +1,3 @@
+Control/metric comparisons: 36.
+Comparisons supported by both the family interval and Holm p <= 0.05: 2.
+Compare raw alignment with shuffled, projected, PC-removed, and residualized controls before accepting a primary claim.

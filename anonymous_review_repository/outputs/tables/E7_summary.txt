@@ -1,0 +1,3 @@
+Large-cohort model curves: 31.
+Holm-significant large-cohort curves: 31.
+Layerwise/final extraction products with identical shape: 0 of 31.

@@ -1,0 +1,3 @@
+Cross-family comparisons with label-free selection worse than oracle: 8.
+Comparisons with label-free selection better than oracle: 0.
+Comparisons whose interval includes zero: 0.

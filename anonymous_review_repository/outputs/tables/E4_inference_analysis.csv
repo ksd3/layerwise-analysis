@@ -1,0 +1,3 @@
+cohort,target,direction,families,mean_regret,family_bootstrap_low,family_bootstrap_high,interval_excludes_zero,direction_of_regret
+sdss,redshift,image_to_spectrum,11,-6778936.86807184,-20336808.933581635,-0.4472099317353373,True,label_free_worse
+sdss,redshift,spectrum_to_image,11,-0.0310271057656386,-0.0344556918688072,-0.0273856697090034,True,label_free_worse

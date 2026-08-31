@@ -1,0 +1,6 @@
+.venv/
+**/__pycache__/
+*.pyc
+outputs/figures/main_figures.html
+experiment_workspace/
+experiments/.venv/

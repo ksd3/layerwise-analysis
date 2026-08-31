@@ -1,0 +1,15 @@
+term,coefficient,permutation_p,family_bootstrap_low,family_bootstrap_high
+intercept,-37.71960546925112,,,
+alignment,-349.2448345394206,0.2943,-1624.3433474545866,113.66048808535788
+log_parameters,-8.274012646417335,,,
+log_width,18.416664660647186,,,
+within_view_redshift_r2,-0.051982760245427334,,,
+family_clip,10.519710751750686,,,
+family_convnext,0.03883586984659824,,,
+family_dinov3,7.424004648359485,,,
+family_ijepa,-4.066342216150185,,,
+family_llava,7.239817053659394,,,
+family_paligemma,7.981037292659581,,,
+family_vit,7.407482626977355,,,
+family_vit-mae,3.591132775851422,,,
+family_vjepa,2.6241541932928136,,,

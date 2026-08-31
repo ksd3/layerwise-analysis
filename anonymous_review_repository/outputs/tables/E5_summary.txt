@@ -1,0 +1,3 @@
+Significant update-alignment curves: 139 of 175.
+Curves where update alignment predicts the next full-state change at p <= 0.05: 54.
+Peak transitions identify the blocks most strongly writing shared geometry.

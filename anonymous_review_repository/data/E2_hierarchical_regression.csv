@@ -1,0 +1,9 @@
+term,component,coefficient,standard_error,p_value,converged
+Intercept,fixed_cohort_effect,0.0004869127902399879,0.006682745371302667,0.9419165765220371,True
+C(cohort)[T.desi],fixed_cohort_effect,-0.004722880682643633,0.00789469505450977,0.549683327836676,True
+C(cohort)[T.jwst],fixed_cohort_effect,-0.0032078696210139997,0.007894206260309268,0.6844799701168027,True
+C(cohort)[T.legacysurvey],fixed_cohort_effect,-0.03148282566105061,0.007933224977133812,7.233325333401605e-05,True
+C(cohort)[T.sdss],fixed_cohort_effect,-0.00029368316478643985,0.007894819085535326,0.9703259532155455,True
+family_variance,variance,0.0001240573490429611,,,True
+family_by_cohort_variance,variance,0.0002564023487934583,,,True
+residual_variance,variance,0.00018795960999663946,,,True

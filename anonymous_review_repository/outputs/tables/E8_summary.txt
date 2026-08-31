@@ -1,0 +1,3 @@
+Models with Holm-significant alignment: 31 of 31.
+Adjusted alignment coefficient: -349.245; permutation p=0.2943.
+Leave-family-out predictions beat the mean baseline for 6 of 10 families.
