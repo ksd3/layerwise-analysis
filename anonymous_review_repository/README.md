@@ -1,6 +1,6 @@
 # Shared geometry reproduction
 
-The compact experiment outputs needed to verify the paper are included in `data`. A reviewer does not need the multi-terabyte embedding archive or a GPU.
+The experiment outputs needed to verify the paper are included in `data`. You can also generate all the data yourself. 
 
 ## One-command reproduction
 
