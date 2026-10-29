@@ -20,9 +20,9 @@ __all__ = ["HERE", "DATA", "TEXT_WIDTH"]
 TEXT_WIDTH = 5.5  # NeurIPS \textwidth in inches
 
 # Ink and chrome
-INK = "#243746"      # titles, strong reference lines
-MUTED = "#66788a"    # secondary text, axis labels, ticks
-AXIS = "#a3b0ba"     # spines
+INK = "#000000"      # titles, strong reference lines
+MUTED = "#000000"    # secondary text, axis labels, ticks
+AXIS = "#000000"     # spines
 GRID = "#e4e9ed"     # hairline gridlines
 
 # Reserved accents (never used for a survey)
@@ -44,7 +44,8 @@ SURVEY_COLOR = {
     "legacysurvey": "#1baf7a",
 }
 
-# Continuous values use one palette everywhere. Survey colors above are used only when color identifies a survey.
+# Continuous values use one palette everywhere. Survey colors above are used
+# only when color identifies a survey.
 HEATMAP_COLORS = LinearSegmentedColormap.from_list(
     "flare",
     ["#EDB081", "#E98768", "#DE5D5C", "#C14168", "#9A3670", "#722C6E", "#4B2362"],

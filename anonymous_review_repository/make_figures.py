@@ -16,6 +16,9 @@ def main():
     subprocess.run([sys.executable, str(ROOT / "figures" / "plot_physics_alignment.py")], check=True)
     subprocess.run([sys.executable, str(ROOT / "figures" / "05_normalized_depth_atlas.py")], check=True)
     subprocess.run([sys.executable, str(ROOT / "figures" / "06_cross_layer_atlas.py")], check=True)
+    subprocess.run([sys.executable, str(ROOT / "figures" / "05_geometry_vs_physics.py")], check=True)
+    subprocess.run([sys.executable, str(ROOT / "figures" / "06_final_transfer_calibration.py")], check=True)
+    subprocess.run([sys.executable, str(ROOT / "figures" / "07_common_space_retrieval.py")], check=True)
 
 
 if __name__ == "__main__":
