@@ -1,5 +1,5 @@
 [project]
-name = "shared-geometry-review"
+name = "layerwise-analysis"
 version = "0.1.0"
 requires-python = ">=3.11"
 dependencies = [
